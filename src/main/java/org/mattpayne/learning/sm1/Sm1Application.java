@@ -19,10 +19,11 @@ public class Sm1Application implements CommandLineRunner  {
 
         @Override
         public void run(String... args) throws Exception {
+        stateMachine.start();
            stateMachine.sendEvent(Events.COIN);
-           stateMachine.sendEvent(Events.PUSH);
             State<States, Events> current = stateMachine.getState();
             System.out.println("Current state: " + current.getId());
+           stateMachine.sendEvent(Events.PUSH);
 
         }
 
